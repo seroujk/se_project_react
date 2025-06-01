@@ -1,4 +1,5 @@
 # WTWR (What to Wear?)
+The ultimate guide to dressing up for the appropriate weather.
 
 ## About the project
 
