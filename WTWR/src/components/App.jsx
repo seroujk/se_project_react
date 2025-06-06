@@ -8,6 +8,7 @@ import "./App.css";
 function App() {
   const [weather, setWeather] = useState(null);
 
+
   useEffect(() => {
     getWeatherInfo().then((data) => {
       if (data) {

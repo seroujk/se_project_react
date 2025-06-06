@@ -1,30 +1,15 @@
-.main {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.main{
+    width: 1360px;
+    height: 40px; 
+    margin: 32px auto 28px;
+    padding: 0 10px;
 }
 
-.main__image-container {
-  position: relative;
-  display: flex;
-}
-
-.main__weather-img {
-  display: block;
-  width: 100%;
-}
-
-.main__temperature {
-  position: absolute;
-  color: white;
-  top: 20px;
-  bottom: 20px;
-  left: 16px;
-  margin: 0;
-  font-family: "Cabinet Grotesk";
-  font-weight: 700;
-  font-size: 36px;
-  line-height: 40px;
-  letter-spacing: 0%;
-  vertical-align: middle;
+.main__title{
+    font-family:"Cabinet Grotesk";
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0%;
+    margin-left: 4px;
 }

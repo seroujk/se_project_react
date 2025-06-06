@@ -1,15 +1,17 @@
 import "./Main.css";
-import weatherCardImage from "../../images/Day/Cloudy.svg";
+import WeatherCard from "../WeatherCard/WeatherCard.jsx";
+import ItemCard from "../ItemCard/ItemCard.jsx";
 
 function Main({ weatherData }) {
   return (
     <div className="main">
-      <div className="main__image-container">
-        <img className="main__weather-img" src={weatherCardImage} alt="Weather" />
-        {weatherData && (
-          <p className="main__temperature">{Math.round(weatherData.main.temp)}°F</p>
-        )}
-      </div>
+      <WeatherCard weatherData={weatherData} />
+      {weatherData && (
+        <p className="main__title">
+          Today is {Math.round(weatherData.main.temp)}°F / You May Want To Wear
+        </p>
+      )}
+      <ItemCard/>
     </div>
   );
 }

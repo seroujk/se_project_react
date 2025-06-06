@@ -14,19 +14,22 @@ export function getWeatherInfo() {
     });
 }
 
-export function filterWeatherInfo() {
+let temperature = 0;
+
+export function filterClothesByWeather() {
   getWeatherInfo()
     .then((data) => {
-      const temperature = data.main.temp;
-      if (temperature >= 86) {
-        return "hot";
-      } else if (temperature >= 66) {
-        return "warm";
-      } else {
-        return "cold";
-      }
+      temperature = data.main.temp;
     })
     .catch((err) => {
       console.error(err);
     });
+
+  if (temperature >= 86) {
+    return "hot";
+  } else if (temperature >= 66) {
+    return "warm";
+  } else {
+    return "cold";
+  }
 }
