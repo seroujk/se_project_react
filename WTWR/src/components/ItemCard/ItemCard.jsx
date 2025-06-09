@@ -3,7 +3,7 @@ import { defaultClothingItems } from "../../utils/constants.js";
 import { filterClothesByWeather } from "../../utils/weatherAPI.js";
 import "./ItemCard.css";
 
-function ItemCard() {
+function ItemCard({onCardClick}) {
   const [filteredItems, setFilteredItems] = useState([]);
   const currentWeather = filterClothesByWeather();
   useEffect(() => {
@@ -18,7 +18,7 @@ function ItemCard() {
       {filteredItems.map((item) => (
         <div key={item._id} className="card">
           <div className="card__name">{item.name}</div>
-          <img src={item.link} alt={item.name} className="card__image" onClick={open} />
+          <img src={item.link} alt={item.name} className="card__image" onClick={() => onCardClick(item)}/>
         </div>
       ))}
     </div>

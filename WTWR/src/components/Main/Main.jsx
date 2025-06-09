@@ -2,7 +2,7 @@ import "./Main.css";
 import WeatherCard from "../WeatherCard/WeatherCard.jsx";
 import ItemCard from "../ItemCard/ItemCard.jsx";
 
-function Main({ weatherData }) {
+function Main({ weatherData, onCardClick }) {
   return (
     <div className="main">
       <WeatherCard weatherData={weatherData} />
@@ -11,7 +11,7 @@ function Main({ weatherData }) {
           Today is {Math.round(weatherData.main.temp)}°F / You May Want To Wear
         </p>
       )}
-      <ItemCard/>
+      <ItemCard onCardClick={onCardClick}/>
     </div>
   );
 }

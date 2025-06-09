@@ -3,39 +3,20 @@ import { weatherImagesArray } from "../../utils/weatherImages";
 function WeatherCard({ weatherData }) {
   // Function to get the appropriate weather image
   const getWeatherIcon = () => {
-    if (!weatherData) return null;
-    
-    // Determine if it's day or night 
-    const currentHour = new Date().getHours();
-    const isDayTime = currentHour >= 6 && currentHour < 18;
-    const timePrefix = isDayTime ? "Day" : "Night";
-    
-    // Get weather condition from API response (lowercase for easier matching)
-    const weatherCondition = weatherData.weather[0].main.toLowerCase();
-    
-    // Map API conditions to our image names
-    const conditionMap = {
-      clouds: "Cloudy",
-      cloud: "Cloudy",
-      fog: "Fog",
-      rain: "Rain",
-      snow: "Snow",
-      thunderstorm: "Storm",
-      clear: "Clear",
-    };
-    
-    // Find matching condition or default to Clear
-    const condition = conditionMap[weatherCondition] || "Clear";
-    
-    // Combine time and condition to match our image names
-    const imageName = `${timePrefix} ${condition}`;
-    
-    // Find the matching image in our array
-    const matchedImage = weatherImagesArray.find(
-      (img) => img.name === imageName
-    );
-    
-    return matchedImage ? matchedImage.icon : null;
+    if (weatherData) {
+      const currentTime = new Date().getHours();
+      const isDayTime = currentTime >= 6 && currentTime <= 18;
+      const prefix = isDayTime ? "Day" : "Night";
+      const weatherCondition = weatherData.weather[0].description;
+      const imageName = `${prefix} ${weatherCondition}`;
+      let weatherImage = weatherImagesArray[0].icon;
+      weatherImagesArray.forEach((image) => {
+        if (imageName.toLowerCase() === image.name.toLowerCase()) {
+          weatherImage = image.icon;
+        }
+      });
+      return weatherImage;
+    }
   };
 
   const weatherIcon = getWeatherIcon();

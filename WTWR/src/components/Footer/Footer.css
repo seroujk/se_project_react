@@ -1,0 +1,14 @@
+.footer {
+  position: relative;
+}
+
+.footer__content {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  width: 1358px;
+  height: 20px;
+  top: 1040px;
+  padding: 24px 40px;
+  
+}

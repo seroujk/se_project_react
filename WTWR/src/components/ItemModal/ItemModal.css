@@ -1,0 +1,18 @@
+.mdodal{
+    position: relative;
+    
+}
+
+.modal__content{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left:50%;
+    transform: translateX(-50%);
+
+}
+
+.modal__close{
+    background-color: transparent;
+    border: none;
+}
