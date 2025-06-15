@@ -1,17 +1,16 @@
 import { useEffect, useState } from "react";
-import { defaultClothingItems } from "../../utils/constants.js";
 import { filterClothesByWeather } from "../../utils/weatherAPI.js";
 import "./ItemCard.css";
 
-function ItemCard({onCardClick}) {
+function ItemCard({onCardClick, clothingItems}) {
   const [filteredItems, setFilteredItems] = useState([]);
   const currentWeather = filterClothesByWeather();
   useEffect(() => {
     if(currentWeather){
-      const filtered =  defaultClothingItems.filter((item) => item.weather === currentWeather);
+      const filtered =  clothingItems.filter((item) => item.weather === currentWeather);
       setFilteredItems(filtered);
     }
-  }, [currentWeather]);
+  }, [currentWeather,clothingItems]);
 
   return (
     <div className="card__section">

@@ -1,13 +1,14 @@
 import "./ModalWithForm.css";
-
-function ModalWithForm({ formName, onClose }) {
+import greyCloseBtnSrc from "../../images/close-button-grey.svg";
+function ModalWithForm({ isOpen, formTitle, onClose }) {
+  if (!isOpen) return null;
   return (
     <div className="modal__backdrop">
-      <div className="modal">
+      <div className={`modal ${isOpen ? "modal_opened" : ""}`}  >
         <button className="modal__close-button" onClick={onClose}>
-          &times;
+          <img className="modal__close-button__image" src={greyCloseBtnSrc} />
         </button>
-        <h2 className="modal__form-title">{formName}</h2>
+        <h2 className="modal__form-title">{formTitle}</h2>
 
         <label htmlFor="name">Name</label>
         <input type="text" id="name" placeholder="Name" />
@@ -33,7 +34,9 @@ function ModalWithForm({ formName, onClose }) {
             <label htmlFor="cold">Cold</label>
           </div>
         </div>
-        <button className="modal__submit-button" type="submit" disabled>Add garment</button>
+        <button className="modal__submit-button" type="submit" disabled>
+          Add garment
+        </button>
       </div>
     </div>
   );

@@ -4,24 +4,29 @@ import Main from "./Main/Main.jsx";
 import ItemModal from "./ItemModal/itemModal.jsx";
 import ModalWithForm from "./ModalWithForm/ModalWithForm.jsx";
 import Footer from "./Footer/Footer.jsx";
+import { defaultClothingItems } from "../utils/constants.js";
 import { getWeatherInfo } from "../utils/weatherAPI.js";
-import "./App.css";
 
 function App() {
   const [weather, setWeather] = useState(null);
   const [selectedItem, setSelectedItem] = useState(null);
   const [formModal, setFormModal] = useState(null);
+  const [clothingItems, setClothingItems] = useState(defaultClothingItems);
 
   useEffect(() => {
-    getWeatherInfo().then((data) => {
-      if (data) {
-        setWeather(data);
-      }
-    });
+    getWeatherInfo()
+      .then((data) => {
+        if (data) {
+          setWeather(data);
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   }, []);
 
-  const handleFormOpen = (formType) => {
-    setFormModal(formType);
+  const handleFormOpen = (formModal) => {
+    setFormModal(formModal);
   };
 
   const handleFormClose = () => {
@@ -36,22 +41,34 @@ function App() {
     setSelectedItem(null);
   };
 
+  const handleAddGarment = (newGarment) => {
+    setClothingItems((prevItems) => [...prevItems, newGarment]);
+  };
+
   return (
-    <>
-      <div className="app">
-        <Header
-          weatherData={weather}
-          onButtonClick={handleFormOpen}
-          form={formModal}
-        />
-        <Main weatherData={weather} onCardClick={handleCardClick} />
-        <ItemModal item={selectedItem} onClose={closeItemModal} />
-        {formModal === "new-garment" && (
-          <ModalWithForm formName="New Garment" onClose={handleFormClose} />
-        )}
-        <Footer/>
-      </div>
-    </>
+    <div className="app">
+      <Header
+        weatherData={weather}
+        onButtonClick={handleFormOpen}
+        formModal={formModal}
+      />
+      <Main
+        weatherData={weather}
+        onCardClick={handleCardClick}
+        clothingItems={clothingItems}
+      />
+      <ItemModal  
+      
+      item={selectedItem} 
+      onClose={closeItemModal} />
+      <ModalWithForm
+        isOpen={formModal === "new-garment"}
+        formTitle="New Garment"
+        onClose={handleFormClose}
+        handleAddGarment={handleAddGarment}
+      />
+      <Footer />
+    </div>
   );
 }
 

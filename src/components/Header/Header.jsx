@@ -2,7 +2,7 @@ import wtwrLogo from "../../images/wtwrlogo.svg";
 import userAvatar from "../../images/avatar.svg";
 import "./Header.css";
 
-function Header({ weatherData, onButtonClick }) {
+function Header({weatherData, onButtonClick }) {
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",

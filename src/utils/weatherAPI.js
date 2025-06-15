@@ -20,9 +20,6 @@ export function filterClothesByWeather() {
   getWeatherInfo()
     .then((data) => {
       temperature = data.main.temp;
-    })
-    .catch((err) => {
-      console.error(err);
     });
 
   if (temperature >= 86) {
