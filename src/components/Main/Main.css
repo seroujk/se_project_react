@@ -1,4 +1,4 @@
-.main{
+main{
     width: 1360px;
     height: 40px; 
     margin: 32px auto 28px;
@@ -13,3 +13,10 @@
     letter-spacing: 0%;
     margin-left: 4px;
 }
+
+.card__section {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  

@@ -57,17 +57,40 @@ function App() {
         onCardClick={handleCardClick}
         clothingItems={clothingItems}
       />
-      <ItemModal  
-      item={selectedItem} 
-      onClose={closeItemModal} 
-      isOpen={selectedItem != null}
+      <ItemModal
+        item={selectedItem}
+        onClose={closeItemModal}
+        isOpen={selectedItem != null}
       />
       <ModalWithForm
         isOpen={formModal === "new-garment"}
         formTitle="New Garment"
         onClose={handleFormClose}
         handleAddGarment={handleAddGarment}
-      />
+        buttonText={"Add garment"}
+      >
+        <label htmlFor="name">Name</label>
+        <input type="text" id="name" placeholder="Name" />
+
+        <label htmlFor="image">Image</label>
+        <input type="url" id="image" placeholder="Image URL" />
+
+        <div className="radio-group">
+          <p className="radio-group__title">Select the weather type:</p>
+          <div>
+            <input type="radio" id="hot" name="weather" defaultChecked />
+            <label htmlFor="hot">Hot</label>
+          </div>
+          <div>
+            <input type="radio" id="warm" name="weather" />
+            <label htmlFor="warm">Warm</label>
+          </div>
+          <div>
+            <input type="radio" id="cold" name="weather" />
+            <label htmlFor="cold">Cold</label>
+          </div>
+        </div>
+      </ModalWithForm>
       <Footer />
     </div>
   );
