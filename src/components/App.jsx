@@ -58,9 +58,10 @@ function App() {
         clothingItems={clothingItems}
       />
       <ItemModal  
-      
       item={selectedItem} 
-      onClose={closeItemModal} />
+      onClose={closeItemModal} 
+      isOpen={selectedItem != null}
+      />
       <ModalWithForm
         isOpen={formModal === "new-garment"}
         formTitle="New Garment"
