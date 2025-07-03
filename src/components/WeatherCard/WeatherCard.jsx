@@ -1,6 +1,12 @@
 import "./WeatherCard.css";
 import { weatherImagesArray } from "../../utils/weatherImages";
+import { useContext } from "react";
+import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 function WeatherCard({ weatherData }) {
+  const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
+  // 2️⃣ Bail out (or return a spinner) until data arrives
+  if (!weatherData) return null;
+
   // Function to get the appropriate weather image
   const getWeatherIcon = () => {
     if (weatherData) {
@@ -28,9 +34,13 @@ function WeatherCard({ weatherData }) {
           src={weatherIcon}
           alt="Current Weather Card"
         />
-        {weatherData && (
+        {currentTemperatureUnit == "F" ? (
           <p className="weatherCard__temperature">
             {Math.round(weatherData.main.temp)}°F
+          </p>
+        ) : (
+          <p className="weatherCard__temperature">
+            {Math.round(((weatherData.main.temp - 32) * 5) / 9)}°C
           </p>
         )}
       </div>

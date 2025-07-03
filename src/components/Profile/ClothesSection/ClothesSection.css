@@ -1,0 +1,42 @@
+.clothes-section {
+  position: absolute;
+  gap: 20px;
+  top: 140px;
+  right: 40px;
+  width: 1015px;
+}
+
+.clothes-section__top{
+  display: flex;
+  gap: 20px;
+}
+
+.clothes-section__text {
+  font-family: "Cabinet Grotesk";
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+
+.clothes-section__button {
+  background-color: transparent;
+  border: none;
+  font-family: "Cabinet Grotesk";
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #00000099;
+  cursor: pointer;
+}
+
+.clothes-section__button:hover{
+  color: black;
+}
+
+.clothes-section__cards {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}

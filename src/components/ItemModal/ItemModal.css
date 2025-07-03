@@ -11,8 +11,8 @@
   z-index: 1000;
 }
 
-.item-modal__content{
-    position: relative;
+.item-modal__content {
+  position: relative;
 }
 
 .item-modal {
@@ -39,6 +39,8 @@
 .item-modal__image {
   border-top-right-radius: 16px;
   border-top-left-radius: 16px;
+  width: 500px;
+  height: 500px;
 }
 
 .item-modal__garment-name {
@@ -59,4 +61,20 @@
   letter-spacing: 0%;
   padding: 0 0 32px 32px;
   margin: 0;
+}
+
+
+.item-modal__delete-btn {
+  background-color: transparent;
+  border: none;
+  color: #FF4D00;
+  font-family:"Cabinet Grotesk";
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0%;
+  cursor: pointer;
+  position: absolute;
+  top: 84.8%;
+  left: 70%;
 }

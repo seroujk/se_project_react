@@ -1,0 +1,20 @@
+.side-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: absolute;
+  top: 140px;
+}
+
+.side-bar__text {
+  font-family: "Cabinet Grotesk";
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+
+.side-bar__image{
+    width: 60px;
+    height: 60px;
+}
