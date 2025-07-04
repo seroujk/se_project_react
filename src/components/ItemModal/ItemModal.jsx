@@ -10,6 +10,7 @@ function ItemModal({ isOpen, item, onClose, onDelete }) {
             <img
               className="item-modal__close-btn__image"
               src={whitecloseBtnSrc}
+              alt="Item Modal Close Button"
             />
           </button>
           <img className="item-modal__image" src={item.imageUrl} alt={item.name} />

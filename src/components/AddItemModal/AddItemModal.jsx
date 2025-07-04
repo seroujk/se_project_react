@@ -10,7 +10,7 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal }) => {
     if (isOpen) {
       setGarmentName("");
       setGarmentImage("");
-      setWeatherType("");
+      setWeatherType("Hot");
     }
   }, [isOpen]);
 
@@ -18,7 +18,6 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal }) => {
     e.preventDefault();
 
     const newGarment = {
-      _id: `${Date.now()}-${Math.random().toString(36).slice(2)}`, // unique key
       name: garmentName, // <- what ItemCard reads
       imageUrl: garmentImage, // <- what ItemCard uses for src
       weather: weatherType, // <- hot / warm / cold
@@ -38,6 +37,7 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal }) => {
     >
       <label htmlFor="name">Name</label>
       <input
+        required
         type="text"
         id="name"
         placeholder="Name"
@@ -48,6 +48,7 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal }) => {
 
       <label htmlFor="image">Image</label>
       <input
+        required
         type="url"
         id="image"
         placeholder="Image URL"
@@ -60,34 +61,37 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal }) => {
         <p className="radio-group__title">Select the weather type:</p>
         <div>
           <input
+            required
             type="radio"
             id="hot"
             name="weather"
-            value="hot"
+            value="Hot"
             defaultChecked
             onChange={(e) => setWeatherType(e.target.value)}
           />
-          <label htmlFor="hot">Hot</label>
+          <label>Hot</label>
         </div>
         <div>
           <input
+            required
             type="radio"
             id="warm"
-            value="warm"
+            value="Warm"
             name="weather"
             onChange={(e) => setWeatherType(e.target.value)}
           />
-          <label htmlFor="warm">Warm</label>
+          <label>Warm</label>
         </div>
         <div>
           <input
+            required
             type="radio"
             id="cold"
-            value="cold"
+            value="Cold"
             name="weather"
-            onChange={(e) =>setWeatherType(e.target.value)}
+            onChange={(e) => setWeatherType(e.target.value)}
           />
-          <label htmlFor="cold">Cold</label>
+          <label>Cold</label>
         </div>
       </div>
     </ModalWithForm>

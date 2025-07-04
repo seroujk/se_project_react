@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 import "./Main.css";
 import WeatherCard from "../WeatherCard/WeatherCard.jsx";
 import ItemCard from "../ItemCard/ItemCard.jsx";
-import { filterClothesByWeather } from "../../utils/weatherAPI.js";
+import { getWeatherType } from "../../utils/weatherAPI.js";
 import { useContext } from "react";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 
 function Main({ weatherData, onCardClick, clothingItems }) {
   const [filteredItems, setFilteredItems] = useState([]);
-  const currentWeather = filterClothesByWeather();
+  const currentWeather = getWeatherType();
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
   useEffect(() => {
     if (currentWeather) {

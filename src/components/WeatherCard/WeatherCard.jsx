@@ -4,16 +4,14 @@ import { useContext } from "react";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 function WeatherCard({ weatherData }) {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
-  // 2️⃣ Bail out (or return a spinner) until data arrives
   if (!weatherData) return null;
 
-  // Function to get the appropriate weather image
   const getWeatherIcon = () => {
     if (weatherData) {
       const currentTime = new Date().getHours();
       const isDayTime = currentTime >= 6 && currentTime <= 18;
       const prefix = isDayTime ? "Day" : "Night";
-      const weatherCondition = weatherData.weather[0].description;
+      const weatherCondition = weatherData.weather[0].main;
       const imageName = `${prefix} ${weatherCondition}`;
       let weatherImage = weatherImagesArray[0].icon;
       weatherImagesArray.forEach((image) => {

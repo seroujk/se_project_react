@@ -3,11 +3,10 @@ import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import Header from "./Header/Header.jsx";
 import Main from "./Main/Main.jsx";
-import ItemModal from "./ItemModal/itemModal.jsx";
+import ItemModal from "./ItemModal/ItemModal.jsx";
 import AddItemModal from "./AddItemModal/AddItemModal.jsx";
 import Profile from "./Profile/Profile.jsx";
 import Footer from "./Footer/Footer.jsx";
-// import { defaultClothingItems } from "../utils/constants.js";
 import { getWeatherInfo } from "../utils/weatherAPI.js";
 import { CurrentTemperatureUnitContext } from "../contexts/CurrentTemperatureUnitContext.js";
 import { getItems, addItem, deleteItem } from "../utils/api.js";
@@ -15,7 +14,6 @@ function App() {
   const [weather, setWeather] = useState(null);
   const [selectedItem, setSelectedItem] = useState(null);
   const [formModal, setFormModal] = useState(null);
-  // const [clothingItems, setClothingItems] = useState(defaultClothingItems);
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [clothingItems, setClothingItems] = useState([]);
 
@@ -34,7 +32,6 @@ function App() {
   useEffect(() => {
     getItems()
       .then((data) => {
-        console.log(data);
         setClothingItems(data);
       })
       .catch((err) => {
@@ -62,22 +59,25 @@ function App() {
     console.log("New garment added:", newGarment);
     addItem(newGarment)
       .then((createdItem) => {
-        setClothingItems((prev) => [...prev, createdItem]); // ⬅️ immediately add
-        setFormModal(null);
+        setClothingItems((prev) => [...prev, createdItem]);
+        handleFormClose();
       })
-      .catch(console.error);
+      .catch((err)=>{
+        console.error("Failed to add item:", err);
+      });
   };
 
   const handleDeleteGarment = (garmentToDelete) => {
-    console.log(garmentToDelete._id, " is now deleted");
     deleteItem(garmentToDelete._id)
       .then(() => {
         setClothingItems(
-          (prev) => prev.filter((item) => item._id !== garmentToDelete._id) // ⬅️ immediately remove
+          (prev) => prev.filter((item) => item._id !== garmentToDelete._id)
         );
         setSelectedItem(null);
       })
-      .catch(console.error);
+      .catch((err)=>{
+        console.error("Failed to delete item:", err);
+      });
   };
 
   const handleToggleSwitchChange = () => {

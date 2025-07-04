@@ -1,15 +1,17 @@
 .card {
-  width: 325px;
-  height: 328px;
+  width: 100%;
+  height: auto;
   position: relative;
   cursor: pointer;
 }
 
 .card__image {
-  width: 328px;
-  height: 328px;
+  width: 100%;          /* no fixed width */
+  aspect-ratio: 1 / 1;  /* keeps it square without hard-coding 328 px */
+  height: auto;         /* maintains ratio */
   border-radius: 10px;
   border: 1px solid #0000004D;
+  object-fit: cover; 
 }
 
 .card__name {
