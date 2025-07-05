@@ -1,14 +1,11 @@
 import { APIkey, longitude, latitude } from "./constants.js";
+import { checkResponse } from "./api.js";
 
 export function getWeatherInfo() {
   return fetch(
     `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&appid=${APIkey}`
   )
-    .then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-    })
+    .then((checkResponse))
     .catch((err) => {
       console.error(err);
     });

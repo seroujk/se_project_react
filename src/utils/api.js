@@ -28,4 +28,4 @@ function deleteItem(id) {
     return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
   }
 
-  export {getItems, addItem, deleteItem};
+  export {getItems, addItem, deleteItem, checkResponse};
