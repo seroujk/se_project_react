@@ -1,6 +1,5 @@
 import { APIkey, longitude, latitude } from "./constants.js";
 
-
 export function getWeatherInfo() {
   return fetch(
     `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&appid=${APIkey}`
@@ -15,9 +14,13 @@ export function getWeatherInfo() {
     });
 }
 
+export function getWeatherType(weatherData) {
+  let temperature = 0;
 
-
-export function getWeatherType(temperature) {
+  if (!weatherData) {
+    return null;
+  }
+  temperature = weatherData.main.temp;
   if (temperature >= 86) {
     return "hot";
   } else if (temperature >= 66) {

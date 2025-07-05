@@ -56,7 +56,6 @@ function App() {
   };
 
   const handleAddGarment = (newGarment) => {
-    console.log("New garment added:", newGarment);
     addItem(newGarment)
       .then((createdItem) => {
         setClothingItems((prev) => [...prev, createdItem]);

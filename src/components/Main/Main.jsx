@@ -8,12 +8,12 @@ import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperature
 
 function Main({ weatherData, onCardClick, clothingItems }) {
   const [filteredItems, setFilteredItems] = useState([]);
-  const currentWeather = getWeatherType();
+  const currentWeather = getWeatherType(weatherData);
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
   useEffect(() => {
     if (currentWeather) {
       const filtered = clothingItems.filter(
-        (item) => item.weather === currentWeather
+        (item) => item.weather.toLowerCase() === currentWeather.toLowerCase()
       );
       setFilteredItems(filtered);
     }
