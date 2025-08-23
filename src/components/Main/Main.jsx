@@ -6,7 +6,7 @@ import { getWeatherType } from "../../utils/weatherAPI.js";
 import { useContext } from "react";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 
-function Main({ weatherData, onCardClick, clothingItems }) {
+function Main({ weatherData, onCardClick, clothingItems, onCardLike, isLoggedIn }) {
   const [filteredItems, setFilteredItems] = useState([]);
   const currentWeather = getWeatherType(weatherData);
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
@@ -35,7 +35,13 @@ function Main({ weatherData, onCardClick, clothingItems }) {
       )}
       <div className="card__section">
         {filteredItems.map((item) => (
-          <ItemCard key={item._id} item={item} onCardClick={onCardClick} />
+          <ItemCard
+            key={item._id}
+            item={item}
+            onCardClick={onCardClick}
+            onCardLike={onCardLike}
+            isLoggedIn={isLoggedIn}
+          />
         ))}
       </div>
     </main>

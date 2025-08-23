@@ -1,10 +1,9 @@
 header {
   display: flex;
   justify-content: space-between;
-  width: 1360px;
   height: 40px; 
   margin: 32px auto 28px;
-  padding: 0 10px;
+  padding: 0 40px;
 }
 
 .header__left {
@@ -60,4 +59,10 @@ header {
   line-height: 100%;
   letter-spacing: 0%;
   
+}
+
+.header__avatar{
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
 }

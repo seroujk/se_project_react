@@ -10,7 +10,7 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal }) => {
     if (isOpen) {
       setGarmentName("");
       setGarmentImage("");
-      setWeatherType("Hot");
+      setWeatherType("hot");
     }
   }, [isOpen]);
 
@@ -40,6 +40,7 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal }) => {
         required
         type="text"
         id="name"
+        value={garmentName}
         placeholder="Name"
         onChange={(e) => {
           setGarmentName(e.target.value);
@@ -51,6 +52,7 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal }) => {
         required
         type="url"
         id="image"
+        value={garmentImage}
         placeholder="Image URL"
         onChange={(e) => {
           setGarmentImage(e.target.value);
@@ -65,7 +67,7 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal }) => {
             type="radio"
             id="hot"
             name="weather"
-            value="Hot"
+            value="hot"
             defaultChecked
             onChange={(e) => setWeatherType(e.target.value)}
           />
@@ -76,7 +78,7 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal }) => {
             required
             type="radio"
             id="warm"
-            value="Warm"
+            value="warm"
             name="weather"
             onChange={(e) => setWeatherType(e.target.value)}
           />
@@ -87,7 +89,7 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal }) => {
             required
             type="radio"
             id="cold"
-            value="Cold"
+            value="cold"
             name="weather"
             onChange={(e) => setWeatherType(e.target.value)}
           />

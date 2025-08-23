@@ -14,6 +14,21 @@
   object-fit: cover; 
 }
 
+.card__like-button{
+  position: absolute;
+  top: 15px;
+  left: 90%;
+  z-index: 4;
+  cursor: pointer;
+}
+
+.card__like-button-clicked{
+  background-color: black;
+}
+
+
+
+
 .card__name {
   position: absolute;
   top: 15px;

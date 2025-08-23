@@ -1,0 +1,15 @@
+.avatar-placeholder{
+    background-color: grey;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.avatar-placeholder__letter{
+    color: white;
+    font-family: "Cabinet Grotesk";
+    font-size: 20px;
+}
