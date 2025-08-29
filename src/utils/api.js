@@ -73,10 +73,7 @@ function createUser(user) {
     },
     body: JSON.stringify(user),
   })
-    .then(checkResponse)
-    .catch((err) => {
-      console.error(err);
-    });
+    .then(checkResponse);
 }
 
 // Sign In User a.k.a "Login User"
@@ -88,10 +85,7 @@ function loginUser(user) {
     },
     body: JSON.stringify(user),
   })
-    .then(checkResponse)
-    .catch((err) => {
-      console.error(err);
-    });
+    .then(checkResponse);
 }
 
 // Update user info a.k.a "Edit Profile"
@@ -108,10 +102,7 @@ function updateUser(user) {
     },
     body: JSON.stringify(user),
   })
-    .then(checkResponse)
-    .catch((err) => {
-      console.error(err);
-    });
+    .then(checkResponse);
 }
 
 //Checking user token validity
@@ -127,10 +118,7 @@ function authorize() {
       authorization: `Bearer ${token}`,
     },
   })
-    .then(checkResponse)
-    .catch((err) => {
-      console.error(err);
-    });
+    .then(checkResponse);
 }
 
 // Check if all repsonses are ok

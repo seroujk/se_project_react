@@ -1,7 +1,6 @@
-.modal_opened{
+.modal_opened {
   visibility: visible !important;
 }
-
 
 .modal__backdrop {
   position: fixed;
@@ -118,10 +117,10 @@
   color: black;
 }
 
-.radio-group input[type="radio"]{
-    margin-right: 8px;
-    accent-color: transparent;
-  }
+.radio-group input[type="radio"] {
+  margin-right: 8px;
+  accent-color: transparent;
+}
 
 .radio-group label {
   margin-bottom: 0;
@@ -130,7 +129,7 @@
 }
 
 .modal__submit-button {
-    margin-top: 32px;
+  margin-top: 32px;
   background-color: #000000;
   color: white;
   padding: 8px 16px;
@@ -141,6 +140,23 @@
   font-size: 16px;
   line-height: 20px;
   letter-spacing: 0%;
+  cursor: pointer;
+}
+
+.modal__second-button {
+  margin-top: 32px;
+  margin-left: 4px;
+  background-color: transparent;
+  color: grey;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  font-family: "Cabinet Grotesk";
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0%;
+  cursor: pointer;
 }
 
 .modal__submit-button:disabled {

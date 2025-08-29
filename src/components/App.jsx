@@ -90,7 +90,7 @@ function App() {
   const handleAddGarment = (newGarment) => {
     addItem(newGarment)
       .then((createdItem) => {
-        setClothingItems((prev) => [...prev, createdItem]);
+        setClothingItems((prev) => [createdItem,...prev]);
         handleFormClose();
       })
       .catch((err) => {
@@ -201,12 +201,14 @@ function App() {
           isOpen={formModal === "sign-up"}
           onSignUp={handleSignUp}
           onCloseModal={handleFormClose}
+          onButtonClick={handleFormOpen}
         />
 
         <LoginModal
           isOpen={formModal === "log-in"}
           onLogin={handlelogin}
           onCloseModal={handleFormClose}
+          onButtonClick={handleFormOpen}
         />
 
         <EditProfileModal
@@ -237,6 +239,7 @@ function App() {
                     onCardClick={handleCardClick}
                     onButtonClick={handleFormOpen}
                     handleSignOut={handleSignOut}
+                    isLoggedIn={isLoggedIn}
                   />
                 </ProtectedRoute>
               }

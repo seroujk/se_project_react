@@ -71,7 +71,7 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal }) => {
             defaultChecked
             onChange={(e) => setWeatherType(e.target.value)}
           />
-          <label>Hot</label>
+          <label htmlFor="hot">Hot</label>
         </div>
         <div>
           <input
@@ -82,7 +82,7 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal }) => {
             name="weather"
             onChange={(e) => setWeatherType(e.target.value)}
           />
-          <label>Warm</label>
+          <label htmlFor="warm">Warm</label>
         </div>
         <div>
           <input
@@ -93,7 +93,7 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal }) => {
             name="weather"
             onChange={(e) => setWeatherType(e.target.value)}
           />
-          <label>Cold</label>
+          <label htmlFor="cold">Cold</label>
         </div>
       </div>
     </ModalWithForm>

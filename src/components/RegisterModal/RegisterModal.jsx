@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-const RegisterModal = ({ isOpen, onSignUp, onCloseModal }) => {
+const RegisterModal = ({ isOpen, onSignUp, onCloseModal,onButtonClick }) => {
   const [name, setName] = useState("");
   const [avatar, setAvatar] = useState("");
   const [email, setEmail] = useState("");
@@ -37,6 +37,8 @@ const RegisterModal = ({ isOpen, onSignUp, onCloseModal }) => {
       handleSignUp={onSignUp}
       buttonText={"Sign Up"}
       onSubmit={handleSubmit}
+      secondButtonText={"or Log In"}
+      onButtonClick={onButtonClick}
     >
       <label htmlFor="email">Email*</label>
       <input
@@ -76,7 +78,7 @@ const RegisterModal = ({ isOpen, onSignUp, onCloseModal }) => {
         required
         type="url"
         value={avatar}
-        id="avatar-url"
+        id="avatar"
         placeholder="Avatar URL"
         onChange={(e) => {
           setAvatar(e.target.value);
