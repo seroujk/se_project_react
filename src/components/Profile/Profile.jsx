@@ -5,7 +5,7 @@ import SideBar from "./SideBar/SideBar";
 function Profile({ clothingItems, onCardClick, onButtonClick,handleSignOut,isLoggedIn }) {
   return (
     <div className="profile">
-      <SideBar onButtonClick={onButtonClick} handleSignOut={handleSignOut}/>
+      <SideBar onButtonClick={onButtonClick} handleSignOut={handleSignOut} isLoggedIn={isLoggedIn}/>
       <ClothesSection
         clothingItems={clothingItems}
         onCardClick={onCardClick}

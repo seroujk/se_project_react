@@ -1,12 +1,17 @@
 import "./SideBar.css";
 import { CurrentUserContext } from "../../../contexts/CurrentUserContext";
-import { useContext, useState } from "react";
+import { useContext, useState,useEffect } from "react";
 
 import AvatarPlaceholder from "../../AvatarPlaceholder/AvatarPlaceholder";
 
-function SideBar({ onButtonClick,handleSignOut}) {
+function SideBar({ onButtonClick,handleSignOut,isLoggedIn}) {
   const currentUser = useContext(CurrentUserContext);
   const [avatarShown, setAvatarShown] = useState(true);
+
+
+  useEffect(() => {
+    setAvatarShown(true);
+  }, [isLoggedIn, currentUser]);
 
   return (
     <div className="side-bar">
