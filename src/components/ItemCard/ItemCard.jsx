@@ -1,6 +1,6 @@
 import "./ItemCard.css";
-import LikeButton from "../../images/Like Button.svg";
-import BlackLikeButton from "../../images/Black Like Button.svg";
+import LikeButton from "../../images/Like_Button.svg";
+import BlackLikeButton from "../../images/Black_Like_Button.scg";
 import { useContext } from "react";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 function ItemCard({ item, onCardClick, onCardLike, isLoggedIn }) {
