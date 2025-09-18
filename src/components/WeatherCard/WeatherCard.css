@@ -10,7 +10,7 @@
   }
   
   .weatherCard__weather-img {
-    display: block;
+    display: block; 
   }
   
   .weatherCard__temperature {
@@ -27,4 +27,5 @@
     letter-spacing: 0%;
     vertical-align: middle;
   }
+
   

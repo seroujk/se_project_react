@@ -1,4 +1,6 @@
-const baseUrl = "http://localhost:3001";
+const baseUrl = process.env.NODE_ENV === "production" 
+  ? "https://api.wtwrtoday.crabdance.com"
+  : "http://localhost:3001";
 
 // This gets ALL the clothing items
 function getItems() {

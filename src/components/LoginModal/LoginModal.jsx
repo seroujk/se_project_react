@@ -31,7 +31,7 @@ const LoginModal = ({ isOpen, onLogin, onCloseModal, onButtonClick}) => {
       handleLogin={onLogin}
       buttonText="Log In"
       onSubmit={handleSubmit}
-      secondButtonText={"or Sing Up"}
+      secondButtonText={"or Sign Up"}
       onButtonClick={onButtonClick}
     >
       <label htmlFor="email">Email*</label>
