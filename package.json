@@ -9,8 +9,7 @@
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "deploy": "npm run build && sudo rsync -av --delete dist/ /var/www/wtwrtoday/"
-    },
+"deploy": "npm run build && sudo sh -c 'mkdir -p /var/www/wtwrtoday && rm -rf /var/www/wtwrtoday/* && cp -a dist/. /var/www/wtwrtoday/ && chown -R www-data:www-data /var/www/wtwrtoday && systemctl reload nginx'"  },
   "dependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
